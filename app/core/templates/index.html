@@ -1,0 +1,16 @@
+<script src="https://unpkg.com/htmx.org"></script>
+
+<body style="text-align: center; padding: 50px; font-family: sans-serif;">
+    <h2>Live Postgres Counter</h2>
+    
+    <div style="font-size: 4rem; color: #007bff;" id="counter-val">
+        {% include 'partials/counter_display.html' %}
+    </div>
+
+    <button hx-post="/increment/" 
+            hx-target="#counter-val" 
+            hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+            style="padding: 10px 20px; font-size: 1.2rem; cursor: pointer;">
+        Increment Now
+    </button>
+</body>
